@@ -5,7 +5,7 @@ const { discountModel } = require('../modles/discount.Model');
 const toggleDiscount = async () => {
   const discount = await discountModel.findOne();
 
-  console.log("-0-0-0-0-0-0", discount)
+//   console.log("-0-0-0-0-0-0", discount)
 
   const isCurrentlyLive = discount.isDiscountLive;
 

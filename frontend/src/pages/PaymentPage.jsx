@@ -51,13 +51,15 @@ const plans = [
 
 const PaymentPlans = () => {
   const [selectedPlan, setSelectedPlan] = useState(null);
-  const [isDiscountLive, setIsDiscountLive] = useState(true);
+  const [isDiscountLive, setIsDiscountLive] = useState(false);
   const { userDetails } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const [saleTimeLeft, setSaleTimeLeft] = useState(null);
 // const saleEndTime = new Date(Date.now() + 3 * 60 * 60 * 1000);
 const [saleEndTime, setSaleEndTime] = useState(null); // will be from backend
 
+
+// console.log(saleTimeLeft.raw, "djfakdsjfajgd-0-0-0-")
 
   useEffect(() => {
     const fetchDiscountStatus = async () => {
@@ -115,6 +117,7 @@ useEffect(() => {
     if (timeLeft <= 0) {
       setSaleTimeLeft(null);
       clearInterval(interval);
+      setIsDiscountLive(false)
       return;
     }
 
@@ -122,7 +125,11 @@ useEffect(() => {
     const minutes = String(Math.floor((timeLeft / (1000 * 60)) % 60)).padStart(2, '0');
     const seconds = String(Math.floor((timeLeft / 1000) % 60)).padStart(2, '0');
 
-    setSaleTimeLeft(`${hours}:${minutes}:${seconds}`);
+    // setSaleTimeLeft(`${hours}:${minutes}:${seconds}`);
+    setSaleTimeLeft({
+  formatted: `${hours}:${minutes}:${seconds}`,
+  raw: timeLeft,
+});
   }, 1000);
 
   return () => clearInterval(interval);
@@ -211,7 +218,15 @@ useEffect(() => {
 
 {isDiscountLive && saleTimeLeft && (
   <div className="bg-gradient-to-r from-green-600 to-green-500 text-white text-center py-3 rounded-lg mb-8 shadow-lg">
-    Sale is live 🔥! Ends in <span className="font-mono font-semibold">{saleTimeLeft}</span>
+    Sale is live 🔥! Ends in  {' '}
+    {/* <span className="font-mono font-semibold">{saleTimeLeft}</span> */}
+      <span
+      className={`font-mono font-semibold ${
+        saleTimeLeft.raw <= 20000 ? 'blink text-red-600' : ''
+      }`}
+    >
+      {saleTimeLeft?.formatted}
+    </span>
   </div>
 )}
       <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">

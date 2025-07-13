@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Email Template</title>
+</head>
+<body style="margin:0; padding:0; font-family:Arial, sans-serif; background-color:#f4f4f4;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#f4f4f4; padding:20px;">
+    <tr>
+      <td>
+        <table cellpadding="0" cellspacing="0" width="600" align="center" style="background:#fff; border-radius:8px; padding:30px; box-shadow:0 2px 5px rgba(0,0,0,0.1);">
+          <tr>
+            <td style="text-align:center; padding-bottom:20px;">
+              <h2 style="color:#333;">Welcome to Our App! 🚀</h2>
+            </td>
+          </tr>
+          <tr>
+            <td style="color:#555; font-size:16px;">
+              <p>Hello <strong>{{username}}</strong>,</p>
+              <p>We're excited to have you on board. Get ready to explore the best experience ever!</p>
+              <p>Click the button below to verify your email and get started:</p>
+              <p style="text-align:center; margin:30px 0;">
+                <a href="{{verifyLink}}" style="background-color:#4CAF50; color:white; padding:12px 25px; text-decoration:none; border-radius:5px; display:inline-block;">Verify Email</a>
+              </p>
+              <p>If you didn’t request this, just ignore this email.</p>
+              <p>Cheers,<br>The Awesome Team</p>
+            </td>
+          </tr>
+        </table>
+        <p style="text-align:center; font-size:12px; color:#aaa; margin-top:20px;">
+          &copy; 2025 Our App. All rights reserved.
+        </p>
+        <input type="datetime-local"/>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Special+Gothic+Condensed+One&display=swap');
+
+
+
+.anton{
+  font-family: "Anton", sans-serif;
+}
+
+.custom_width{
+  width: calc(100dvw - 67px);
+}
+
+.custom_width::-webkit-scrollbar{
+  display: none ;
+}
+
+.hiddeScrollBar::-webkit-scrollbar{
+  display: none;
+}
+
+/* .imageAnimation{
+  transition: all 2s;
+  animation: skid 3s infinite linear;
+}
+
+@keyframes skid {
+  50%{
+    background: 50% 50%;
+  }
+
+} */
+
+
+.imageAnimation {
+  transition: all 2s;
+  animation: skid 9s infinite linear;
+  background-position: 0% 0%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@keyframes skid {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 50% 50%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+
+
+/* .custom-toast {
+  min-height: 60px;
+  width: 300px;
+  font-size: 14px;
+  padding: 12px 16px;
+  background: #1f1f1f;
+  border-radius: 10px;
+  color: white;
+} */

@@ -14,7 +14,7 @@ const UserManagement = () => {
   const fetchUsers = async () => {
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:4000/api/v1/admin/all", {
+      const res = await fetch("https://taskmanagmentmini.onrender.com/api/v1/admin/all", {
         headers: {
          Authorization: userDetails.token,
         },
@@ -43,7 +43,7 @@ const UserManagement = () => {
     if (action === "restore") url = `/api/v1/admin/restore/${userId}`;
 
     try {
-      const res = await fetch(`http://localhost:4000${url}`, {
+      const res = await fetch(`https://taskmanagmentmini.onrender.com${url}`, {
         method: "PUT",
         headers: {
          Authorization: userDetails.token,

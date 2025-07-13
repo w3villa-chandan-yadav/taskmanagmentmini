@@ -66,7 +66,7 @@ const PaymentPlans = () => {
      const fetchPayment = async (plan)=>{
         try {
 
-            const data = await fetch("http://localhost:4000/payment/v1/createPayment",{
+            const data = await fetch("https://taskmanagmentmini.onrender.com/payment/v1/createPayment",{
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -96,7 +96,7 @@ const PaymentPlans = () => {
                     // console.log(response)
 
 
-                      const data = await fetch("http://localhost:4000/payment/v1/verify",{
+                      const data = await fetch("https://taskmanagmentmini.onrender.com/payment/v1/verify",{
                         method: "POST",
                         headers:{
                             "Content-Type": "application/json",

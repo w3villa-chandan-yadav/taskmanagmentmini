@@ -18,7 +18,7 @@ const Loing = () => {
             if(authResult["code"]){
                 console.log("data fetching")
 
-                const data = await fetch(`http://localhost:4000/api/v1/googleLogin?code=${authResult["code"]}`) ;
+                const data = await fetch(`https://taskmanagmentmini.onrender.com/api/v1/googleLogin?code=${authResult["code"]}`) ;
                 console.log(data)
 
                 const result =await data.json();

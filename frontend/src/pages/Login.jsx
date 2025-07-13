@@ -27,7 +27,7 @@ const Login = () => {
     try {
       
 
-      const data = await fetch("http://localhost:4000/api/v1/user/register",{
+      const data = await fetch("https://taskmanagmentmini.onrender.com/api/v1/user/register",{
         method: "POST",
         headers: {
           "Content-Type": "application/json",

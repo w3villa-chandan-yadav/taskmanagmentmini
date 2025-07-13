@@ -134,7 +134,7 @@ const Dashboard = () => {
   const FetchDashBoard = async () => {
     try {
       setLoading(true);
-      const response = await fetch("http://localhost:4000/api/v1/task/dashboard", {
+      const response = await fetch("https://taskmanagmentmini.onrender.com/api/v1/task/dashboard", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

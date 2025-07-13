@@ -129,7 +129,7 @@ const NotificationContent = () => {
   // Fetch notifications from backend
   const fetchNotifications = async () => {
     try {
-      const res = await fetch('http://localhost:4000/api/v1/notification/allNotifications', {
+      const res = await fetch('https://taskmanagmentmini.onrender.com/api/v1/notification/allNotifications', {
         method: "GET",
         headers: {
           Authorization: userDetails?.token,
@@ -174,7 +174,7 @@ const NotificationContent = () => {
   // Mark as read
   const markNotificationRead = async (id) => {
     try {
-      await fetch(`http://localhost:4000/api/v1/notification/acceptInvitation/${id}`, {
+      await fetch(`https://taskmanagmentmini.onrender.com/api/v1/notification/acceptInvitation/${id}`, {
         method: 'PATCH',
         headers: {
           Authorization: userDetails?.token,
@@ -190,7 +190,7 @@ const NotificationContent = () => {
 
    const makeAllRead = async () => {
     try {
-      await fetch(`http://localhost:4000/api/v1/notification/makeAllAsRead`, {
+      await fetch(`https://taskmanagmentmini.onrender.com/api/v1/notification/makeAllAsRead`, {
         headers: {
           Authorization: userDetails?.token,
         },

@@ -51,7 +51,7 @@ const HomePage = () => {
     }
 
     try {
-      const data = await fetch("http://localhost:4000/api/v1/task/create",{
+      const data = await fetch("https://taskmanagmentmini.onrender.com/api/v1/task/create",{
         method: "POST",
         headers:{
           "Content-Type":"application/json",
@@ -83,7 +83,7 @@ const HomePage = () => {
 
       const handleTypes = async ()=>{
         try {
-            const data = await fetch("http://localhost:4000/api/v1/task/createGroup",{
+            const data = await fetch("https://taskmanagmentmini.onrender.com/api/v1/task/createGroup",{
               method: "POST",
               headers: {
                 "Content-Type":"application/json",

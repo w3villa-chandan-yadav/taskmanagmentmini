@@ -40,7 +40,7 @@ const Projects = ({handleTaskCreation}) => {
 
 
       (async ()=>{
-        const  data = await fetch(`http://localhost:4000/api/v1/task/getAllTask?groupId=${isGroup}`,{
+        const  data = await fetch(`https://taskmanagmentmini.onrender.com/api/v1/task/getAllTask?groupId=${isGroup}`,{
           method: "GET",
           headers: {
             "Content-Type":"application/json",
@@ -63,7 +63,7 @@ const Projects = ({handleTaskCreation}) => {
           setTasks(result.data)
          }else{
 
-          const recentdata = await fetch("http://localhost:4000/api/v1/task/getGroupTask",{
+          const recentdata = await fetch("https://taskmanagmentmini.onrender.com/api/v1/task/getGroupTask",{
             method: "GET",
             headers: {
               "Content-Type": "application/json",
@@ -90,7 +90,7 @@ const Projects = ({handleTaskCreation}) => {
         // console.log(currentGroup)
         // console.log("-=0-0-=--0-0=-0")
 
-        const data = await fetch(`http://localhost:4000/api/v1/task/getSingleGroupTask/${currentGroup}`,{
+        const data = await fetch(`https://taskmanagmentmini.onrender.com/api/v1/task/getSingleGroupTask/${currentGroup}`,{
           method: "GET",
           headers: {
             "Content-Type":"application/json",

@@ -44,7 +44,7 @@ const FrontPage = () => {
 
   const handleChangeTask = async (status, id)=>{
 
-    const updateTaskstatus = await fetch("http://localhost:4000/api/v1/task/taskUpdateStatus",{
+    const updateTaskstatus = await fetch("https://taskmanagmentmini.onrender.com/api/v1/task/taskUpdateStatus",{
       method:"put",
       headers: {
         "Content-Type": "application/json",
@@ -69,7 +69,7 @@ const FrontPage = () => {
 
   const handleDeleteTask = async ( id)=>{
 
-    const updateTaskstatus = await fetch("http://localhost:4000/api/v1/task/deleteTask",{
+    const updateTaskstatus = await fetch("https://taskmanagmentmini.onrender.com/api/v1/task/deleteTask",{
       method:"DELETE",
       headers: {
         "Content-Type": "application/json",

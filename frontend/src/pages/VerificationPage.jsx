@@ -8,7 +8,7 @@ const VerificationPage = () => {
    
     const handleverification = async ()=>{
         try {
-            const data = await fetch("http://localhost:4000/api/v1/user/verification",{
+            const data = await fetch("https://taskmanagmentmini.onrender.com/api/v1/user/verification",{
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

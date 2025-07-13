@@ -89,7 +89,7 @@ const SideBar = () => {
 
  const unreadedCount = async () => {
     try {
-      const totalUnreaded =  await fetch(`http://localhost:4000/api/v1/notification/unreadedCount`, {
+      const totalUnreaded =  await fetch(`https://taskmanagmentmini.onrender.com/api/v1/notification/unreadedCount`, {
         method: "GET",
         headers: {
           Authorization: userDetails?.token,

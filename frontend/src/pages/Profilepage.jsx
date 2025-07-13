@@ -159,7 +159,7 @@ const ProfilePage = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await fetch('http://localhost:4000/api/v1/profile', {
+        const res = await fetch('https://taskmanagmentmini.onrender.com/api/v1/profile', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -188,7 +188,7 @@ const ProfilePage = () => {
 
   const handleSave = async () => {
     try {
-      const res = await fetch('http://localhost:4000/api/v1/profile', {
+      const res = await fetch('https://taskmanagmentmini.onrender.com/api/v1/profile', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -217,7 +217,7 @@ const ProfilePage = () => {
 
   const handleDeleteAccount = async () => {
     try {
-      const res = await fetch('http://localhost:4000/api/v1/delete-account', {
+      const res = await fetch('https://taskmanagmentmini.onrender.com/api/v1/delete-account', {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

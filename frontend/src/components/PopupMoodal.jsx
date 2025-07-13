@@ -184,7 +184,7 @@ const InviteComponent = ({ isGroup }) => {
   
 
   const handleInvite = async (userId) => {
-  const res = await fetch("http://localhost:4000/api/v1/notification/invite", {
+  const res = await fetch("https://taskmanagmentmini.onrender.com/api/v1/notification/invite", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -230,7 +230,7 @@ const InviteComponent = ({ isGroup }) => {
 
       setLoading(true);
 
-      fetch(`http://localhost:4000/api/v1/task/searchUser?query=${encodeURIComponent(searchTerm)}`, {
+      fetch(`https://taskmanagmentmini.onrender.com/api/v1/task/searchUser?query=${encodeURIComponent(searchTerm)}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

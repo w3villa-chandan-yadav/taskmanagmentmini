@@ -41,7 +41,7 @@ const commentModels = sequelize.define("comments",{
 })
 
 // { alter: true }
-userModel.sync({ alter: true }).then(()=>{
+userModel.sync().then(()=>{
     console.log("userModel got synced")
 
     return groupModel.sync()

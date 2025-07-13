@@ -15,7 +15,7 @@ const toggleDiscount = async () => {
     console.log("🔕 Discount turned OFF");
   } else {
     // Turn on for next 10 minutes
-    const endTime = new Date(Date.now() + 10 * 60 * 1000);
+    const endTime = new Date(Date.now() + 6 * 60 * 1000);
     await discount.update({ isDiscountLive: true, endTime });
     console.log("🎉 Discount turned ON");
   }

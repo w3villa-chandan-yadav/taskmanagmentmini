@@ -198,9 +198,9 @@ const InviteComponent = ({ isGroup }) => {
 
   const result = await res.json();
   if (result.success) {
-    alert("Invitation sent!");
+    toast.success("Invitation sent!");
   } else {
-    alert(result.message || "Failed to invite");
+    toast.error(result.message || "Failed to invite");
   }
 };
 

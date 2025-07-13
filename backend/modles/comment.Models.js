@@ -6,6 +6,7 @@ const { emailModel } = require("./emailVerification.Model");
 const { groupModel } = require("./group.Model");
 const { participantModel } = require("./participants.Model");
 const { notificationModel } = require("./notification.Model");
+const { discountModel } = require("./discount.Model");
 
 const commentModels = sequelize.define("comments",{
     id: {
@@ -65,6 +66,10 @@ userModel.sync({ alter: true }).then(()=>{
     return notificationModel.sync()
 }).then(()=>{
     console.log("Notification sync successfully")
+    return discountModel.sync()
+}   
+).then(()=>{
+    console.log("discount sync successfully")
 }
 ).catch((error)=>{
     console.log("there is error in syncing userModle")

@@ -2,6 +2,7 @@ const { razorpay } = require("../config/rzorpay.config");
 const crypto = require("crypto");
 const { userModel } = require("../modles/user.Models");
 const { ApiError } = require("../middleware/error.Middleware");
+const { discountModel } = require("../modles/discount.Model");
 
 
 const paymentCachup = async (req, res, next)=>{
@@ -115,5 +116,20 @@ const verifyingPayment = async (req, res, next) => {
 };
 
 
+const ongongDiscount = async (req, res) => {
+  try {
+    const discount = await discountModel.findOne();
+    console.log("disoid-0-0-0-0-0-0", discount)
+    res.status(200).json({
+      isDiscountLive: discount.isDiscountLive,
+      endTime: discount.endTime,
+    });
+  } catch (err) {
+    console.error("Error fetching discount status:", err);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
 
-module.exports =  { paymentCachup , verifyingPayment }
+
+
+module.exports =  { paymentCachup , verifyingPayment, ongongDiscount }

@@ -4,6 +4,14 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const dotenv = require("dotenv");
 const { Server } = require("socket.io"); // <--- RECOMMENDED
+const userRoute  = require("./routes/user.Routes");
+const { paymentRoute } = require("./routes/payment.Routes");
+const { taskRoute } = require("./routes/task.Routes");
+const { errorHandler } = require("./middleware/error.Middleware");
+const notification = require("./routes/notification.Router");
+const admin = require("./routes/admin.Routes");
+const { startDiscountCron } = require("./utils/discountCron");
+const { ensureDiscountRowExists } = require("./utils/ensureDiscountSeed");
 
 // Load env file
 // dotenv.config({
@@ -65,18 +73,16 @@ io.on("connection", (socket) => {
 
 app.set("io", io);
 // ------------------------ Routes ---------------------------
-const userRoute  = require("./routes/user.Routes");
-const { paymentRoute } = require("./routes/payment.Routes");
-const { taskRoute } = require("./routes/task.Routes");
-const { errorHandler } = require("./middleware/error.Middleware");
-const notification = require("./routes/notification.Router");
-const admin = require("./routes/admin.Routes");
+
 
 app.use("/api/v1/", userRoute);
 app.use("/api/v1/admin", admin);
 app.use("/api/v1/task/", taskRoute);
 app.use("/payment/v1/", paymentRoute);
 app.use("/api/v1/notification/", notification);
+
+startDiscountCron()
+ensureDiscountRowExists()
 
 
 // ------------------------ Error Middleware ---------------------------

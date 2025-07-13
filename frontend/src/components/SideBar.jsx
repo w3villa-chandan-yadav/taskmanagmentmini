@@ -15,6 +15,8 @@ import { useEffect } from 'react';
 import { useTaskContect } from '../contextApi/TaskContext';
 import { CgProfile } from "react-icons/cg";
 import { useLocation } from 'react-router-dom';
+import { RiAdminFill } from "react-icons/ri";
+
 
 
 
@@ -33,7 +35,8 @@ const SideBar = () => {
     
   const { userDetails } = useSelector((state) => state.user);
     const { notification, setNotifications }  = useTaskContect()
-  
+   
+    // console.log(userDetails)
 
     // const {userDetails } = useSelector((state)=>state.user)
     // const fetchPayment = async ()=>{
@@ -146,6 +149,12 @@ const SideBar = () => {
                         </span>
               <TbPremiumRights  className={`text-2xl mx-auto group-hover:text-white text-gray-500  ${location.pathname === "/payment" && "text-white"} transition-all duration-150`}/> 
             </div></Link>
+             { userDetails.isAdmin && <Link to="/admin"> <div className={`relative text-center hover:bg-gray-600 ${location.pathname === "/payment" && "bg-gray-600"} rounded-sm cursor-pointer px-2 py-1 group`}>
+                       <span className="absolute -top-5 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-all z-50 whitespace-nowrap">
+                        Admin
+                        </span>
+              <RiAdminFill  className={`text-2xl mx-auto group-hover:text-white text-gray-500  ${location.pathname === "/payment" && "text-white"} transition-all duration-150`}/> 
+            </div></Link>}
             <Link to="/notification">
                 <div className={`relative text-center hover:bg-gray-600 ${location.pathname === "/notification" && "bg-gray-600"} rounded-sm cursor-pointer px-2 py-1 group`}>
                             <span className="absolute -top-5 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-all z-50 whitespace-nowrap">

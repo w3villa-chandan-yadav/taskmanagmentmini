@@ -10,6 +10,8 @@ exports.getAllUsers = async (req, res, next) => {
       attributes: { exclude: ["password"] },
     });
 
+    console.log("here is the user details")
+
     res.status(200).json({
       success: true,
       message: "All active users fetched",

@@ -12,6 +12,7 @@ import NotificationSection from './pages/Notification'
 import socket from './utils/socket'
 import { useSelector } from 'react-redux'
 import ProfilePage from './pages/Profilepage'
+import UserManagement from './pages/AdminPage'
 
 const App = () => {
   const { userDetails } = useSelector((state)=> state.user);
@@ -87,6 +88,7 @@ useEffect(() => {
       <Route path='/payment' element={<PaymentPage/>}/>
       <Route path='/notification' element={<NotificationSection/>}/>
       <Route path='/profile' element={<ProfilePage/>}/>
+      <Route path='/admin' element={<UserManagement/>}/>
       </Route>
       <Route path='/login' element={<SignUp/> }/>
       <Route path ="/signup" element= {<Login/>}/>

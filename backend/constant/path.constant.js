@@ -1,12 +1,12 @@
 
 const PATHS = {
    SENDER:{
-     SERVER: "http://localhost:5173/verification/",
-    LOCALSERVER: "https://taskmanagmentmini.vercel.app/verification/"
+     SERVER: "https://taskmanagmentmini.vercel.app/verification/",
+    LOCALSERVER: "http://localhost:4000/verification/"
    },
    CHECKER:{
-    SERVER: "http://localhost:4000/verification/",
-    LOCALSERVER: "https://taskmanagmentmini.vercel.app/verification/"
+     SERVER: "https://taskmanagmentmini.vercel.app/verification/",
+    LOCALSERVER: "http://localhost:4000/verification/"
    }
 }
 

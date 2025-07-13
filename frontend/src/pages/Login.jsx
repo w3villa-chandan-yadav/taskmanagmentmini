@@ -18,9 +18,12 @@ const Login = () => {
     e.preventDefault();
     // console.log("here i am")
     // console.log(password , confirmPassword, password.trim().length)
+    if(!email || !name){
+      toast.error("All fields are reuqire")
+    }
  
     if( password.trim().length < 1  || password != confirmPassword ){
-      alert("Password Must be same")
+      toast.error("Password Must be same")
       return 
     }
 
@@ -84,7 +87,7 @@ const Login = () => {
 
 
 
-     <form onSubmit={handleSubmite} className=' border-[1px] border-white/40 h-auto rounded-sm p-3 flex flex-col gap-3 lg:w-[40%] bg-linear-to-t from-black/80 to-black/20 md:w-[50%] sm:w-[55%]'>
+     <div  className=' border-[1px] border-white/40 h-auto rounded-sm p-3 flex flex-col gap-3 lg:w-[40%] bg-linear-to-t from-black/80 to-black/20 md:w-[50%] sm:w-[55%]'>
       <div className='w-full '>
         <p className='text-center anton text-white'>Create Account</p>
        <div className='flex items-center justify-center'><LogwithGoogle/></div> 
@@ -134,6 +137,7 @@ const Login = () => {
           <div className='flex justify-center items-center gap-3'>
           <button
           type='submit'
+          onClick={handleSubmite}
           className=' border-white/20 border-[1px] px-1 py-2 bg-green-500/40 cursor-pointer text-white outline-none rounded-sm w-full'
           >
           Create
@@ -152,7 +156,7 @@ const Login = () => {
 
         
           
-     </form>
+     </div>
 
     </div>
   )

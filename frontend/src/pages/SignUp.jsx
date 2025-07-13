@@ -17,6 +17,12 @@ const SignUp = () => {
 
     const handleSubmit =async (e)=>{
             e.preventDefault();
+
+            if(!email || !password){
+                toast.error("All fields are require");
+                return
+            }
+
         try {
             // console.log("called")
             const data = await fetch("https://taskmanagmentmini.onrender.com/api/v1/user/login",{
@@ -101,7 +107,7 @@ const SignUp = () => {
           <div className='flex justify-center items-center gap-3'>
           <button
           type='submit'
-                onSubmit={handleSubmit}
+          onClick={handleSubmit}
           className=' border-white/20 border-[1px] px-1 py-2 bg-green-500/40 cursor-pointer text-white outline-none rounded-sm w-full'
           >
           Login

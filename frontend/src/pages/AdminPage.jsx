@@ -29,7 +29,7 @@ const UserManagement = () => {
   };
 
   useEffect(() => {
-    if(!userDetails.isAdmin){
+    if(!userDetails?.isAdmin){
         navigate("/")
         return
     }

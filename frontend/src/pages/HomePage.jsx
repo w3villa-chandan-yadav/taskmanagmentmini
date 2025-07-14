@@ -7,6 +7,7 @@ import {  useTaskContect } from '../contextApi/TaskContext'
 import { GiCrossMark } from "react-icons/gi";
 import { useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify'
+import socket from '../utils/socket'
 
 
 
@@ -14,10 +15,11 @@ import { toast } from 'react-toastify'
 const HomePage = () => {
    const navigate = useNavigate()
    const location = useLocation();
+
    
 
   const { userDetails } = useSelector((state)=> state.user);
-  const { isGroup , setIsGruop , isPopUp, setIsPopUp  , tasks ,setTasks, recent, setRecent, setCurrentGroup, currentGroup, teamm, setTeamm } = useTaskContect()
+  const { isGroup , setIsGruop , isPopUp, setIsPopUp  , tasks ,setTasks, recent, setRecent, setCurrentGroup, currentGroup, teamm, setTeamm,setNotifications } = useTaskContect()
   const [task, setTask ] = useState("")
   const [groupName, setgroupName] = useState("")
 
@@ -121,6 +123,14 @@ const HomePage = () => {
     }
 
   },[])
+
+   useEffect(() => {
+      socket.on('new_invite', (data) => {
+        // console.log('📬 receiving invite');
+        setNotifications((prev)=> prev +1 )
+      });
+      return () => socket.off('new_invite');
+    }, []);
 
   return (
     <div className='w-screen relative overflow-hidden h-screen max-w-[2100px] mx-auto flex'>

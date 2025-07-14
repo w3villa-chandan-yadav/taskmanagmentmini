@@ -127,7 +127,7 @@ const HomePage = () => {
    useEffect(() => {
       socket.on('new_invite', (data) => {
         // console.log('📬 receiving invite');
-        setNotifications((prev)=> prev +1 )
+        setNotifications((prev)=> Number(prev) +1 )
       });
       return () => socket.off('new_invite');
     }, []);

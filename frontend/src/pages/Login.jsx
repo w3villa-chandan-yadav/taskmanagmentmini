@@ -12,6 +12,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword ,setConfirmPassword] = useState("")
+  const [isLoading, setIsloading] = useState(false)
 
   const handleSubmite = async(e)=>{
 
@@ -28,7 +29,7 @@ const Login = () => {
     }
 
     try {
-      
+      setIsloading(true)
 
       const data = await fetch("https://taskmanagmentmini.onrender.com/api/v1/user/register",{
         method: "POST",
@@ -59,6 +60,7 @@ const Login = () => {
 
       if(result.success){
         toast.success("please check your email")
+          setIsloading(false)
       }else{
         result.message
       }
@@ -69,6 +71,7 @@ const Login = () => {
       setConfirmPassword("")
 
     } catch (error) {
+      setIsloading(false)
       console.log("there is error in hanleSubmite in Login Component")
     }
   }
@@ -140,7 +143,7 @@ const Login = () => {
           onClick={handleSubmite}
           className=' border-white/20 border-[1px] px-1 py-2 bg-green-500/40 cursor-pointer text-white outline-none rounded-sm w-full'
           >
-          Create
+                    {isLoading ? "Please wait...": "Signup"}
           </button>
        
           </div> 

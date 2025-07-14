@@ -14,6 +14,7 @@ const SignUp = () => {
 
     const [ email , setEmail ] = useState("");
     const [password, setpassword ] = useState("")
+    const [isLoading, setIsloading] = useState(false)
 
     const handleSubmit =async (e)=>{
             e.preventDefault();
@@ -25,6 +26,7 @@ const SignUp = () => {
 
         try {
             // console.log("called")
+            setIsloading(true)
             const data = await fetch("https://taskmanagmentmini.onrender.com/api/v1/user/login",{
                 method: "POST",
                 headers: {
@@ -43,8 +45,11 @@ const SignUp = () => {
             dispatch(addUserLogin(result.data[0]))
             navigate("/")
             toast.success("Login successfully")
+            setIsloading(false)
             }else{
                 toast.error(result.message)
+                setIsloading(false)
+
             }
             
 
@@ -110,7 +115,7 @@ const SignUp = () => {
           onClick={handleSubmit}
           className=' border-white/20 border-[1px] px-1 py-2 bg-green-500/40 cursor-pointer text-white outline-none rounded-sm w-full'
           >
-          Login
+          {isLoading ? "Login wait...": "Login"}
           </button>
        
           </div> 

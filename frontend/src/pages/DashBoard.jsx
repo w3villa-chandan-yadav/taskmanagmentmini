@@ -123,6 +123,7 @@
 import React, { useEffect, useState } from 'react';
 import { FaUsers, FaTasks, FaUserClock, FaLayerGroup } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const Dashboard = () => {
@@ -130,6 +131,7 @@ const Dashboard = () => {
   const [stats, setStats] = useState([]);
   const [groupList, setGroupList] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate()
 
   const FetchDashBoard = async () => {
     try {
@@ -189,6 +191,10 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
+     if(!userDetails){
+        navigate("/login")
+        return
+     }
     FetchDashBoard();
   }, []);
 

@@ -168,7 +168,8 @@ const NotificationContent = () => {
   const handleReject = async (note) => {
     // console.log('❌ Reject clicked:', note);
     // Optionally delete or mark as read
-    await markNotificationRead(note.id);
+    toast.success("Rejected, but can join later")
+    // await markNotificationRead(note.id);
   };
 
   // Mark as read
@@ -181,7 +182,7 @@ const NotificationContent = () => {
         },
       });
       setNotification((prev) =>
-        prev.map((n) => (n.id === id ? { ...n, seen: true } : n))
+        prev.map((n) => (n.id === id ? { ...n, seen: true, status: "accepted" } : n))
       );
     } catch (err) {
       console.error('Error marking as read:', err);
@@ -261,7 +262,7 @@ const NotificationContent = () => {
                 </button>
               </div>
             ):   <button
-                  onClick={() => handleReject(note)}
+                  // onClick={() => handleReject(note)}
                   className="bg-green-600 hover:bg-green-700  h-[30px] px-4 cursor-pointer py-1 text-sm rounded text-white"
                 >
                   accepted

@@ -198,7 +198,7 @@ const UserManagement = () => {
       <div className="flex gap-4 mb-6">
         <button
           onClick={() => setFilter("all")}
-          className={`px-4 py-2 rounded ${
+          className={`px-4 py-2 cursor-pointer rounded ${
             filter === "all" ? "bg-blue-600" : "bg-gray-700"
           }`}
         >
@@ -206,7 +206,7 @@ const UserManagement = () => {
         </button>
         <button
           onClick={() => setFilter("blocked")}
-          className={`px-4 py-2 rounded ${
+          className={`px-4 py-2 cursor-pointer rounded ${
             filter === "blocked" ? "bg-blue-600" : "bg-gray-700"
           }`}
         >
@@ -214,7 +214,7 @@ const UserManagement = () => {
         </button>
         <button
           onClick={() => setFilter("deleted")}
-          className={`px-4 py-2 rounded ${
+          className={`px-4 py-2 cursor-pointer rounded ${
             filter === "deleted" ? "bg-blue-600" : "bg-gray-700"
           }`}
         >
@@ -242,14 +242,14 @@ const UserManagement = () => {
                 {user.isBlocked ? (
                   <button
                     onClick={() => updateStatus(user.id, "unblock")}
-                    className="bg-green-600 hover:bg-green-700 px-3 py-1 rounded text-sm"
+                    className="bg-green-600 cursor-pointer hover:bg-green-700 px-3 py-1 rounded text-sm"
                   >
                     <FaUnlock className="inline mr-1" /> Unblock
                   </button>
                 ) : (
                   <button
                     onClick={() => updateStatus(user.id, "block")}
-                    className="bg-red-600 hover:bg-red-700 px-3 py-1 rounded text-sm"
+                    className="bg-red-600 cursor-pointer hover:bg-red-700 px-3 py-1 rounded text-sm"
                   >
                     <FaBan className="inline mr-1" /> Block
                   </button>
@@ -258,7 +258,7 @@ const UserManagement = () => {
                 {user.isDeleted && (
                   <button
                     onClick={() => updateStatus(user.id, "restore")}
-                    className="bg-yellow-600 hover:bg-yellow-700 px-3 py-1 rounded text-sm"
+                    className="bg-yellow-600 cursor-pointer hover:bg-yellow-700 px-3 py-1 rounded text-sm"
                   >
                     <FaTrashRestore className="inline mr-1" /> Restore
                   </button>

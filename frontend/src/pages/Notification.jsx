@@ -217,7 +217,6 @@ const NotificationContent = () => {
         ...prev,
       ]);
     });
-    setNotifications((prev)=> prev +1 )
     return () => socket.off('new_invite');
   }, []);
 

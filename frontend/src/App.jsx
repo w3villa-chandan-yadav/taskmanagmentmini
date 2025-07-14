@@ -5,7 +5,7 @@ import { FrontPage, HomePage } from './pages'
 import Login from './pages/Login'
 import SignUp from './pages/SignUp'
 import VerificationPage from './pages/VerificationPage'
-import { TaskContextProvider } from './contextApi/TaskContext'
+import { TaskContextProvider, useTaskContect } from './contextApi/TaskContext'
 import  PaymentPage  from './pages/PaymentPage'
 import Dashboard from './pages/DashBoard'
 import NotificationSection from './pages/Notification'
@@ -16,6 +16,8 @@ import UserManagement from './pages/AdminPage'
 
 const App = () => {
   const { userDetails } = useSelector((state)=> state.user);
+    const { notification, setNotifications}  = useTaskContect()
+  
 
   // console.log(React.version)
 // useEffect(() => {
@@ -75,6 +77,14 @@ useEffect(() => {
 //     socket.off("new_invite");
 //   };
 // }, []);
+
+ useEffect(() => {
+    socket.on('new_invite', (data) => {
+      // console.log('📬 receiving invite');
+      setNotifications((prev)=> prev +1 )
+    });
+    return () => socket.off('new_invite');
+  }, []);
 
 
   return (
